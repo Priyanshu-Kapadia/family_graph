@@ -117,11 +117,20 @@ export function TextUpdaterNode({ data }) {
                     </div>
                 </div>
             </div> */}
-            <div className="flex h-screen items-center justify-center border border-black bg-gray-100">
+            <div className="flex h-screen items-center justify-center border border-black bg-gray-100" style={{
+                padding: '50px',
+                background: '#512B81',
+                borderRadius: '20px',
+            }}>
 
-                <div className="nodrag relative max-h-screen max-w-md rounded-lg bg-white p-8 shadow-md">
+                <div className="nodrag relative max-h-screen max-w-md rounded-lg p-8 shadow-md" style={{
+                    background: '#35155D'
+                }}>
 
-                    <div className="absolute right-2 top-2">
+                    <div className="absolute right-2 top-2" style={{
+                        top: '18px',
+                        right: '10px',
+                    }}>
                         <button className="mr-2 rounded-full bg-blue-500 p-2 text-white" onClick={toggleEditMode}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -142,9 +151,14 @@ export function TextUpdaterNode({ data }) {
                         </button>
                     </div>
                     <div className="flex items-center justify-center">
-                        <label htmlFor="image-upload" className="h-24 w-24 cursor-pointer overflow-hidden rounded-full border-4 border-black">
+                        <label htmlFor="image-upload" className="h-24 w-24 cursor-pointer overflow-hidden rounded-full border-3 " style={{
+                            border: '3px solid #FFC436'
+                        }}>
                             {image ? (
-                                <img src={image} alt="Profile Picture" className="h-full w-full object-cover" />
+                                <img src={image} alt="Profile Picture" className="h-full w-full object-cover" style={{
+                                    padding: '5px',
+                                    borderRadius: '50%',
+                                }} />
                             ) : (
                                 <div className="flex h-full w-full items-center justify-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="none" /* viewBox="0 0 24 24" */ stroke="currentColor"
@@ -157,37 +171,63 @@ export function TextUpdaterNode({ data }) {
                             {mode === 'edit' && <input type="file" id="image-upload" className="hidden" onChange={handleImageChange} />}
                         </label>
                     </div>
-                    <div className="mt-4 flex">
-                        <div className="mr-2 w-1/2">
-                            <label htmlFor="first-name" className="block text-sm text-gray-600">First Name</label>
-                            <input type="text" id="first-name" name="first-name" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" />
-                        </div>
-
-                        <div className="ml-2 w-1/2">
-                            <label htmlFor="last-name" className="block text-sm text-gray-600">Last Name</label>
-                            <input type="text" id="last-name" name="last-name" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" />
-                        </div>
+                    {mode === 'view' && <div className='my-4 text-center text-[#F8F0E5]' style={{
+                        fontFamily: 'Poppins',
+                        fontSize: '22px'
+                    }}>
+                        Megh Naik
                     </div>
-
-                    <div className="mt-4">
-                        <label htmlFor="bio" className="block text-sm text-gray-600">Bio</label>
-                        <textarea id="bio" name="bio" rows="4" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none"></textarea>
+                    }
+                    {mode === 'view' && <div className='my-4 text-center text-[#F8F0E5]' style={{
+                        fontFamily: 'Poppins'
+                    }}>
+                        User interface flutter developer and web3 developer
                     </div>
-
-                    <div className="mt-4">
-                        <label htmlFor="relation" className="block text-sm text-gray-600">Relation</label>
-                        <input type="text" id="relation" name="relation" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" />
+                    }
+                    {mode === 'view' && <div className='my-4 text-center text-[#FFC436]' style={{
+                        fontFamily: 'Poppins'
+                    }}>
+                        Papa
                     </div>
+                    }
+                    {mode === 'edit' &&
+                        <>
+                            <div className="mt-4 flex">
+                                <div className="mr-2 w-1/2">
+                                    <label htmlFor="first-name" className="block text-sm text-[#F8F0E5]">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" />
+                                </div>
+
+                                <div className="ml-2 w-1/2">
+                                    <label htmlFor="last-name" className="block text-sm text-[#F8F0E5]">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" />
+                                </div>
+                            </div>
+
+                            <div className="mt-4">
+                                <label htmlFor="bio" className="block text-sm text-[#F8F0E5]">Bio</label>
+                                <textarea id="bio" name="bio" rows="4" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none"></textarea>
+                            </div>
+
+                            <div className="mt-4">
+                                <label htmlFor="relation" className="block text-sm text-[#F8F0E5]">Relation</label>
+                                <input type="text" id="relation" name="relation" className="mt-1 w-full rounded-md border p-2 focus:border-blue-500 focus:outline-none" />
+                            </div>
+
+                        </>
+                    }
                     {mode === 'edit' && (
-                        <div className="mt-4">
-                            <button className="rounded-full bg-blue-500 p-2 text-white" onClick={toggleEditMode}>
+                        <div className="mt-5 flex items-center justify-end">
+                            <button className="rounded-full bg-[#FFA33C] p-2 text-white" onClick={toggleEditMode} style={{
+                                padding: '8px 22px'
+                            }}>
                                 Save
                             </button>
                         </div>
                     )}
 
                 </div>
-            </div>
+            </div >
             <NodeLabel label={connectedLabel} />
             <Handle type="source" position={Position.Bottom} id="a" onConnect={onConnect} />
             <Handle type="source" position={Position.Bottom} id="a" />
